@@ -67,9 +67,9 @@ module.exports = async (env, options) => {
         chunks: ["polyfill", "taskpane"],
       }),
       new HtmlWebpackPlugin({
-        filename: "popup.html", // ✅ Genera popup.html en la raíz de dist
+        filename: "taskpane/popup.html", // ✅ popup generado en taskpane/
         template: "./src/taskpane/popup.html",
-        chunks: [], // no necesita JS asociado
+        chunks: [],
       }),
       new CopyWebpackPlugin({
         patterns: [
