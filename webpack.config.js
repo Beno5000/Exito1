@@ -24,7 +24,6 @@ module.exports = async (env, options) => {
     entry: {
       polyfill: ["core-js/stable", "regenerator-runtime/runtime"],
       taskpane: ["./src/taskpane/taskpane.js", "./src/taskpane/taskpane.html"],
-      popup: "./src/taskpane/popup.html" // entrada para popup
     },
     output: {
       clean: true,
@@ -67,7 +66,7 @@ module.exports = async (env, options) => {
         chunks: ["polyfill", "taskpane"],
       }),
       new HtmlWebpackPlugin({
-        filename: "taskpane/popup.html", // ✅ popup generado en taskpane/
+        filename: "popup.html",  // ✅ Generado en la raíz de dist/
         template: "./src/taskpane/popup.html",
         chunks: [],
       }),

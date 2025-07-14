@@ -51,16 +51,14 @@ async function enviarFormulario() {
 
 // NUEVO: Abrir formulario emergente
 function abrirFormularioEmergente() {
-  const url = "https://beno5000.github.io/Exito1/taskpane/popup.html";
-
-
+  const url = window.location.origin + "/popup.html";
 
   Office.context.ui.displayDialogAsync(
     url,
     { height: 50, width: 40, displayInIframe: true },
     function (asyncResult) {
       if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        dialog = asyncResult.value;
+        const dialog = asyncResult.value;
 
         // Escuchar los datos enviados desde el popup
         dialog.addEventHandler(Office.EventType.DialogMessageReceived, function (arg) {
@@ -88,4 +86,3 @@ async function insertarDatosDesdePopup(datos) {
     console.error("Error al insertar datos desde el popup:", error);
   }
 }
-//nuevo
