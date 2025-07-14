@@ -1,5 +1,7 @@
 # Build output
 dist/
+!dist/taskpane/popup.html
+
 
 # Node modules folder
 node_modules/
