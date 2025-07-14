@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Popup Formulario</title>
-    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-  </head>
-  <body>
-    <h1>Formulario Popup</h1>
-    <form>
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" /><br />
-      <label for="edad">Edad:</label>
-      <input type="number" id="edad" /><br />
-      <button type="button" id="enviar">Enviar</button>
-    </form>
+<head>
+  <meta charset="utf-8">
+  <title>Formulario Emergente</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 10px; }
+    input, button { margin: 6px 0; padding: 6px; width: 100%; }
+  </style>
+</head>
+<body>
+  <h3>Formulario Emergente</h3>
+  <label>Nombre:</label>
+  <input type="text" id="nombre" />
+  <label>Edad:</label>
+  <input type="number" id="edad" />
+  <button onclick="enviar()">Enviar</button>
 
-    <script>
-      Office.onReady(() => {
-        document.getElementById("enviar").onclick = () => {
-          const nombre = document.getElementById("nombre").value;
-          const edad = document.getElementById("edad").value;
-
-          if (!nombre || !edad) {
-            alert("Completa todos los campos");
-            return;
-          }
-
-          const datos = { nombre, edad };
-          Office.context.ui.messageParent(JSON.stringify(datos));
-        };
-      });
-    </script>
-  </body>
+  <script>
+    function enviar() {
+      const nombre = document.getElementById("nombre").value;
+      const edad = document.getElementById("edad").value;
+      const datos = { nombre, edad };
+      Office.context.ui.messageParent(JSON.stringify(datos));
+    }
+  </script>
+</body>
 </html>
