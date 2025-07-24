@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:type="TaskPaneApp">
+  <Id>c3fd25f2-3a3f-4c01-a50d-123456789abc</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>TuNombre</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Éxito1" />
+  <Description DefaultValue="Tu complemento Excel con popup" />
+
+  <IconUrl DefaultValue="https://beno5000.github.io/Exito1/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://beno5000.github.io/Exito1/assets/icon-80.png" />
+
+  <SupportUrl DefaultValue="https://beno5000.github.io/Exito1" />
+
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="SharedRuntime" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://beno5000.github.io/Exito1/taskpane.html" />
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <Runtime>
+    <Override>
+      <SourceLocation DefaultValue="https://beno5000.github.io/Exito1/taskpane.html"/>
+    </Override>
+    <SupportsSharedRuntime>true</SupportsSharedRuntime>
+  </Runtime>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host Name="Workbook">
+        <DesktopFormFactor>
+          <FunctionFile resid="Taskpane.Url" />
+
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <CustomTab id="Tab1">
+              <Group id="Group1">
+                <Label resid="GroupLabel" />
+                <Icon>
+                  <bt:Image size="16" resid="Icon16" />
+                  <bt:Image size="32" resid="Icon32" />
+                  <bt:Image size="80" resid="Icon80" />
+                </Icon>
+                <Control xsi:type="Button" id="TaskpaneButton">
+                  <Label resid="ButtonLabel" />
+                  <Supertip>
+                    <Title resid="ButtonLabel" />
+                    <Description resid="ButtonToolTip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon16" />
+                    <bt:Image size="32" resid="Icon32" />
+                    <bt:Image size="80" resid="Icon80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+              </Group>
+            </CustomTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon16" DefaultValue="https://beno5000.github.io/Exito1/assets/icon-16.png" />
+        <bt:Image id="Icon32" DefaultValue="https://beno5000.github.io/Exito1/assets/icon-32.png" />
+        <bt:Image id="Icon80" DefaultValue="https://beno5000.github.io/Exito1/assets/icon-80.png" />
+      </bt:Images>
+
+      <bt:Urls>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://beno5000.github.io/Exito1/taskpane.html" />
+      </bt:Urls>
+
+      <bt:ShortStrings>
+        <bt:String id="GroupLabel" DefaultValue="Éxito" />
+        <bt:String id="ButtonLabel" DefaultValue="Abrir Panel" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="ButtonToolTip" DefaultValue="Haz clic para abrir el complemento Éxito1" />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
